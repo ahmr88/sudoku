@@ -1,6 +1,8 @@
 #include "Sudoku.h"
+/* #include "ASudoku.h" */
 #include <string>
 #include <stack>
+//#include "BreadthFirstSearch.h"
 #include "BestFirstSearch.h"
 #include "SudokuSquare.h"
 #include <chrono>
@@ -48,6 +50,20 @@ bool fillBoard(Sudoku * board, const string & fill) {
 
 
 
+void output(Sudoku * toOut) {
+    string solvedBoard = "";
+    for (int i = 0; i < 9; ++i) {
+        solvedBoard += "[";
+        for (int j = 0; j < 9; ++j) {
+            solvedBoard += to_string(toOut->getSquare(i, j));
+            if (j < 8) {solvedBoard += ", ";}
+        }
+        if (i == 8) {solvedBoard += "]";} else {solvedBoard += "], ";}
+    }
+    string answer = "[" + solvedBoard + "]";
+    cout << answer << endl;
+}
+
 int main(int argc, char** argv) {
 
   unique_ptr<Sudoku> board(new Sudoku(9));
@@ -57,7 +73,8 @@ int main(int argc, char** argv) {
 
   Searchable * solution = search.solve();
   Sudoku * done = static_cast<Sudoku*>(solution);
-  done->write(cout);
+  output(done);
+//  done->write(cout);
 }
 
 
@@ -76,6 +93,3 @@ int main(int argc, char** argv) {
 /*     } */
 /*     return true; */
 /* } */
-
-
-
