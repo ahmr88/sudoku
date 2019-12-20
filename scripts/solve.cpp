@@ -36,7 +36,7 @@ bool fillBoard(Sudoku * board, const string & fill) {
       ++col;
       const int setTo = std::stoi(string(1,c));
       if (setTo != 0) {
-        cout << row << " , " << col << " --> " << setTo << endl;
+        /* cout << row << " , " << col << " --> " << setTo << endl; */
         if (!board->setSquare(row, col, setTo)) {
           
             cout << "Error: setSquare returned false after setting square[" << row << "][" << col << "] to " << setTo << " - this should happen as the example boards are solvable\n";
