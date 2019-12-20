@@ -5,6 +5,9 @@
 *.DS_Store
 *.dSYM/
 
+#Ignore my shit
+*.idea/*
+*cmake*
 
 # Logs
 logs
