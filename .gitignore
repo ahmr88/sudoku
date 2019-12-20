@@ -5,9 +5,9 @@ scripts/bin*
 *.DS_Store
 *.dSYM/
 
-.idea*
-cmake*
-
+#Ignore my shit
+*.idea/*
+*cmake*
 
 # Logs
 logs
