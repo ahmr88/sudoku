@@ -13,17 +13,16 @@ app.get('/', (req, res) => {
 app.post('/solve', async (req, res) => {
   console.log(req.body)
   const str = JSON.stringify(req.body.board);
-  const {stdout, stderr} = await exec(`./bin/solve ${str}`);
-  console.log(stdout);
-  res.send("I solved it xD!")
+  const {stdout, stderr} = await exec(`scripts/bin/solve ${str}`);
+  if (stderr) {
+    res.send(500);
+    return
+  }
+  const parsed = JSON.parse(stdout);
+  const toSend = { board: parsed };
+  res.send(toSend);
+  return;
 })
-
-
-
-
-
-
-
 
 
 
