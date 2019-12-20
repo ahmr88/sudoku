@@ -1,5 +1,5 @@
 # Ignoring executables in bin
-*bin/*
+scripts/bin*
 
 # Ignore mac DS_Store
 *.DS_Store
